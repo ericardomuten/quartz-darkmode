@@ -20,6 +20,12 @@
   }
 }
 
+// Option hoverHighlight: the icon takes the hover color (--tertiary) on hover only, so it does not
+// stay colored after a click (focus).
+.darkmode.hover-highlight:hover svg {
+  fill: var(--tertiary);
+}
+
 :root[saved-theme="dark"] {
   color-scheme: dark;
 }

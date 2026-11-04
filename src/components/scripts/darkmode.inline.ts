@@ -14,6 +14,15 @@ const emitThemeChangeEvent = (theme: "light" | "dark") => {
   document.dispatchEvent(event);
 };
 
+// Fade the page in after a theme change, like Wowchemy/Hugo Blox (opacity 0 -> 1, linear).
+// Enabled when the button has data-fade-duration (plugin option fadeDuration > 0).
+const fadeInPage = () => {
+  const button = document.querySelector<HTMLElement>(".darkmode[data-fade-duration]");
+  const duration = Number(button?.dataset.fadeDuration ?? 0);
+  if (!(duration > 0) || !document.body) return;
+  document.body.animate([{ opacity: 0 }, { opacity: 1 }], { duration, easing: "linear" });
+};
+
 const setupDarkmode = () => {
   // Sync body class with current theme on setup (runs after DOM is ready)
   const currentSavedTheme =
@@ -27,14 +36,17 @@ const setupDarkmode = () => {
     localStorage.setItem("theme", newTheme);
     syncBodyThemeClass(newTheme);
     emitThemeChangeEvent(newTheme);
+    fadeInPage();
   };
 
   const themeChange = (e: MediaQueryListEvent) => {
     const newTheme = e.matches ? "dark" : "light";
+    const changed = document.documentElement.getAttribute("saved-theme") !== newTheme;
     document.documentElement.setAttribute("saved-theme", newTheme);
     localStorage.setItem("theme", newTheme);
     syncBodyThemeClass(newTheme);
     emitThemeChangeEvent(newTheme);
+    if (changed) fadeInPage();
   };
 
   for (const darkmodeButton of document.getElementsByClassName("darkmode")) {

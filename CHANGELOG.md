@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.0
+
+### Minor Changes
+
+- Add options `fadeDuration` (fade the page in after a theme change, like Wowchemy/Hugo Blox),
+  `fillSunCenter` (filled sun icon) and `hoverHighlight` (icon colored with `--tertiary` on hover,
+  not on focus). All default to off, so the default behavior is unchanged.
+
 ## 1.0.0
 
 ### Major Changes

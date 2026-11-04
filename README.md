@@ -22,7 +22,11 @@ plugins:
 
 ## Configuration
 
-This plugin has no configuration options.
+| Option           | Type      | Default | Description                                                                                                                                  |
+| ---------------- | --------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `fadeDuration`   | `number`  | `0`     | Fade the page in over this many milliseconds when the theme changes (click or operating-system change). `0` switches instantly. |
+| `fillSunCenter`  | `boolean` | `false` | Fill the hollow center of the sun icon.                                                                                                      |
+| `hoverHighlight` | `boolean` | `false` | Color the icon with `--tertiary` on hover (not on focus, so it does not stay colored after a click).                                         |
 
 ## Documentation
 

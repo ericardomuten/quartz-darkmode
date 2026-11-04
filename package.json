@@ -1,6 +1,6 @@
 {
   "name": "@quartz-community/darkmode",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Darkmode toggle component for Quartz - light/dark theme switcher",
   "type": "module",
   "license": "MIT",
@@ -84,7 +84,7 @@
     "name": "darkmode",
     "displayName": "Dark Mode",
     "category": "component",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "quartzVersion": ">=5.0.0",
     "dependencies": [],
     "defaultOrder": 50,
